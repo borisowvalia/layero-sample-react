@@ -17,103 +17,77 @@ function App() {
         </div>
         <div>
           <h1>Layero sample — React + Vite</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+          <p className="subtitle">
+            Демо-страница для проверки деплоя: сборка даёт каталог{' '}
+            <code>dist/</code>, его и забирает Layero.
           </p>
         </div>
         <button
+          type="button"
           className="counter"
           onClick={() => setCount((count) => count + 1)}
         >
-          Count is {count}
+          Локальный счётчик: {count}
         </button>
       </section>
 
       <div className="ticks"></div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+      <section className="demo-body" aria-labelledby="demo-heading">
+        <h2 id="demo-heading">Как это связано с Layero</h2>
+        <p className="lead">
+          Layero клонирует репозиторий, ставит зависимости, выполняет команду
+          сборки и публикует статику в Object Storage за CDN. Этот репозиторий —
+          минимальный пример: React, Vite, выход в <code>dist/</code>.
+        </p>
+        <ol className="pipeline">
+          <li>
+            <strong>Push в GitHub</strong> — срабатывает webhook, стартует
+            билдер.
+          </li>
+          <li>
+            <strong>Сборка</strong> — например <code>npm run build</code>,
+            артефакты в <code>dist/</code>.
+          </li>
+          <li>
+            <strong>Выдача</strong> — сайт открывается по URL вида{' '}
+            <code>*.layero.ru</code> или по своему домену.
+          </li>
+        </ol>
+
+        <div className="feature-grid">
+          <article className="card">
+            <h3 className="card-title">Статический выход</h3>
+            <p>
+              HTML, JS и ассеты из <code>dist/</code> без сервера приложения —
+              идеально для SPA на Vite.
+            </p>
+          </article>
+          <article className="card">
+            <h3 className="card-title">Логи и переменные</h3>
+            <p>
+              В интерфейсе Layero видно ход сборки; при необходимости можно
+              задать env для <code>vite build</code>.
+            </p>
+          </article>
+          <article className="card">
+            <h3 className="card-title">Окружения</h3>
+            <p>
+              Разные ветки и ручные деплои помогают отделить превью от
+              продакшена.
+            </p>
+          </article>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
+
+        <p className="build-hint">
+          Команда по умолчанию: <code>npm run build</code> → каталог{' '}
+          <code>dist</code>.
+        </p>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <footer className="site-footer">
+        Layero · тестовый сайт · React + Vite
+      </footer>
     </>
   )
 }
