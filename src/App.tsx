@@ -16,10 +16,11 @@ function App() {
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
         <div>
-          <h1>Layero sample — React + Vite</h1>
+          <h1>🅱️ Variant B — A/B-тест Layero</h1>
           <p className="subtitle">
-            Демо-страница для проверки деплоя: сборка даёт каталог{' '}
-            <code>dist/</code>, его и забирает Layero.
+            Это <strong>вариант B</strong> того же URL. Если вы сюда попали —
+            сработал A/B-сплит на edge: njs прокинул запрос в другой
+            S3-префикс. Production-вариант показывает «Layero sample — React + Vite».
           </p>
         </div>
         <button
